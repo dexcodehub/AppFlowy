@@ -88,22 +88,19 @@ class _UserSettingButtonState extends State<UserSettingButton> {
       dimension: 28.0,
       child: FlowyTooltip(
         message: LocaleKeys.settings_menu_open.tr(),
-        child: BlocProvider.value(
-          value: _passwordBloc,
-          child: FlowyButton(
-            onTap: () => showSettingsDialog(
-              context,
-              userWorkspaceBloc: _userWorkspaceBloc,
-              passwordBloc: _passwordBloc,
-            ),
-            margin: EdgeInsets.zero,
-            text: FlowySvg(
-              FlowySvgs.settings_s,
-              color: widget.isHover
-                  ? Theme.of(context).colorScheme.onSurface
-                  : null,
-              opacity: 0.7,
-            ),
+        child: FlowyButton(
+          onTap: () => showSettingsDialog(
+            context,
+            userWorkspaceBloc: _userWorkspaceBloc,
+            passwordBloc: _passwordBloc,
+          ),
+          margin: EdgeInsets.zero,
+          text: FlowySvg(
+            FlowySvgs.settings_s,
+            color: widget.isHover
+                ? Theme.of(context).colorScheme.onSurface
+                : null,
+            opacity: 0.7,
           ),
         ),
       ),

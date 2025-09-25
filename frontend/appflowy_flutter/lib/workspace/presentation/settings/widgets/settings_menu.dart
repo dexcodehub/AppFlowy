@@ -62,7 +62,6 @@ class SettingsMenu extends StatelessWidget {
               changeSelectedPage: changeSelectedPage,
             ),
             if (FeatureFlag.membersSettings.isOn &&
-                userProfile.workspaceType == WorkspaceTypePB.ServerW &&
                 currentUserRole != null &&
                 currentUserRole != AFRolePB.Guest)
               SettingsMenuElement(
@@ -109,8 +108,7 @@ class SettingsMenu extends StatelessWidget {
               ),
               changeSelectedPage: changeSelectedPage,
             ),
-            if (userProfile.workspaceType == WorkspaceTypePB.ServerW &&
-                currentUserRole != null &&
+            if (currentUserRole != null &&
                 currentUserRole != AFRolePB.Guest)
               SettingsMenuElement(
                 page: SettingsPage.sites,

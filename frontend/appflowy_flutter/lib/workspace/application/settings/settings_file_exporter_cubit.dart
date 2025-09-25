@@ -53,7 +53,16 @@ class SettingsFileExportState {
 class SettingsFileExporterCubit extends Cubit<SettingsFileExportState> {
   SettingsFileExporterCubit({
     required List<ViewPB> views,
-  }) : super(SettingsFileExportState(views: views));
+  }) : super(SettingsFileExportState(views: views)) {
+    // 默认全选所有项目
+    _initializeWithAllSelected();
+  }
+
+  void _initializeWithAllSelected() {
+    final state = this.state;
+    state.initialize();
+    emit(state);
+  }
 
   void selectOrDeselectAllItems() {
     final List<List<bool>> selectedItems = state.selectedItems;
