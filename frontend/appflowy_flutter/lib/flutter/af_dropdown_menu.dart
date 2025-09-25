@@ -668,8 +668,7 @@ class _AFDropdownMenuState<T> extends State<AFDropdownMenu<T>> {
     }
     final InputDecorationTheme effectiveInputDecorationTheme =
         widget.inputDecorationTheme ??
-            theme.inputDecorationTheme ??
-            defaults.inputDecorationTheme!;
+            (defaults.inputDecorationTheme as InputDecorationTheme);
 
     final MouseCursor effectiveMouseCursor =
         canRequestFocus() ? SystemMouseCursors.text : SystemMouseCursors.click;
@@ -1059,7 +1058,7 @@ class _DropdownMenuDefaultsM3 extends DropdownMenuThemeData {
   }
 
   @override
-  InputDecorationTheme get inputDecorationTheme {
-    return const InputDecorationTheme(border: OutlineInputBorder());
+  InputDecorationThemeData? get inputDecorationTheme {
+    return const InputDecorationThemeData(border: OutlineInputBorder());
   }
 }
